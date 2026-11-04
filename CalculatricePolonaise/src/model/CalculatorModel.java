@@ -75,4 +75,12 @@ public class CalculatorModel implements CalculatorModelInterface {
 			this.accu = a ;
 		}
 	}
+	
+	public void setAccu(double valeur) {
+	    this.accu = valeur;
+	}
+	
+	public double getAccu() {
+	    return this.accu;
+	}
 }
