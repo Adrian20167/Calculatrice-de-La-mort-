@@ -6,6 +6,11 @@ public class CalculatorModel implements CalculatorModelInterface {
 	private Stack<Double> memory ;
 	private double accu ;
 	
+	public CalculatorModel() {
+	    this.memory = new Stack<>();
+	    this.accu = 0.0;
+	}
+	
 	public void add() {
 		if (!this.memory.isEmpty()) {
 			this.accu = this.memory.pop() + this.accu ;
