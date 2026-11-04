@@ -1,0 +1,7 @@
+package view;
+
+public class AppLauncher {
+    public static void main(String[] args) {
+        MainTestGUI.main(args);
+    }
+}
