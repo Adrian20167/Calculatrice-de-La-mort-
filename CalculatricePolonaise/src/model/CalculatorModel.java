@@ -21,7 +21,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 	
 	// Fonction produit 
 	
-	public void multiple() {
+	public void multiply() {
 		if (!this.memory.isEmpty()) {
 			this.accu = this.memory.pop() * this.accu  ;
 		}
