@@ -14,7 +14,7 @@ public class Main {
 		Calc.setAccu(5);
 		Calc.add();
 		
-		Calc.getAccu();
+		System.out.println( Calc.getAccu()) ;
 	}
 
 }
