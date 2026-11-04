@@ -7,12 +7,40 @@ public class CalculatorModel implements CalculatorModelInterface {
 	private double accu ;
 
 	public void add() {
-		
+		if (!this.memory.isEmpty()) {
+			this.accu = this.memory.pop() + this.accu ;
+		}
+	}
+	
+	public void substract() {
+		// Vérification de si la pile est vide ou non pour éviter les erreurs 
+		if (!this.memory.isEmpty()) {							
+			this.accu = this.memory.pop() - this.accu  ;
+		}
+	}
+	
+	// Fonction produit 
+	
+	public void multiple() {
+		if (!this.memory.isEmpty()) {
+			this.accu = this.memory.pop() * this.accu  ;
+		}
+	}
+	
+	public void divide() {
+		if (!this.memory.isEmpty()) {
+			this.accu = this.memory.pop() / this.accu  ;
+		}
 	}
 	
 	public void pop() {
-		
-		
+		if (!this.memory.isEmpty()) {
+			this.accu = this.memory.pop() ;
+		}
+	}
+	
+	public void push()  {
+		this.memory.push(this.accu) ;
 	}
 	
 	public void clear() {
