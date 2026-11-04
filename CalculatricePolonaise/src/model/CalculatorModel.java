@@ -5,7 +5,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 	
 	private Stack<Double> memory ;
 	private double accu ;
-
+	
 	public void add() {
 		if (!this.memory.isEmpty()) {
 			this.accu = this.memory.pop() + this.accu ;
@@ -46,4 +46,28 @@ public class CalculatorModel implements CalculatorModelInterface {
 	public void clear() {
 		this.accu = 0.0;
     }
+
+	public void drop() {
+		if (!this.memory.isEmpty()) {
+			this.memory.pop() ;
+		}
+	}
+
+	public void dropall() {
+		while (!this.memory.isEmpty()) {
+					this.memory.pop() ;
+		}
+	}
+	
+	public void opposite() {
+	    this.accu = -this.accu; 
+	}
+	
+	public void swap() {
+		if (!this.memory.isEmpty()) {
+			double a = this.memory.pop() ;
+			this.memory.push(this.accu);
+			this.accu = a ;
+		}
+	}
 }
