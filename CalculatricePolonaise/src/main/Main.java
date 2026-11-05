@@ -1,20 +1,25 @@
 package main;
 
+import controler.CalculatorControler;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import model.CalculatorModel;
+import view.CalculatorGUI;
 
-public class Main {
+public class Main extends Application {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		CalculatorModel Calc = new CalculatorModel() ;
-				
-		Calc.setAccu(15);
-		Calc.push();
-		
-		Calc.setAccu(5);
-		Calc.add();
-		
-		System.out.println( Calc.getAccu()) ;
-	}
+    @Override
+    public void start(Stage stage) {
+        CalculatorModel model = new CalculatorModel();
+        CalculatorGUI gui = new CalculatorGUI();
+        new CalculatorControler(model, gui); // câblage MVC
 
+        stage.setTitle("Ma calculette");
+        stage.setScene(gui);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
