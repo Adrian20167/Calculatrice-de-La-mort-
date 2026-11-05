@@ -14,13 +14,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-/**
- * Vue de la calculatrice RPN. Aucune logique métier ici : la vue affiche
- * et transmet les clics au contrôleur.
- */
+
 public class CalculatorGUI extends Scene implements CalculatorGUIInterface {
 
-    private static final int STACK_LINES = 4; // lignes de pile visibles (+ 1 ligne d'accumulateur)
+    private static final int STACK_LINES = 4; 
 
     private final Label[] stackLabels = new Label[STACK_LINES];
     private final Label accuLabel = new Label("0.0");
@@ -35,7 +32,7 @@ public class CalculatorGUI extends Scene implements CalculatorGUIInterface {
         root.setSpacing(6);
         root.setPadding(new Insets(8));
 
-        // --- Affichage : pile (haut) + accumulateur (bas)
+       
         VBox display = new VBox(3);
         for (int i = 0; i < STACK_LINES; i++) {
             stackLabels[i] = createDisplayLabel("");
@@ -83,9 +80,7 @@ public class CalculatorGUI extends Scene implements CalculatorGUIInterface {
         affiche();
     }
 
-    // ------------------------------------------------------------------
-    // CalculatorGUIInterface
-    // ------------------------------------------------------------------
+
 
     @Override
     public void change(String accu) {
@@ -94,14 +89,13 @@ public class CalculatorGUI extends Scene implements CalculatorGUIInterface {
 
     @Override
     public void change(List<Double> stackData) {
-        this.stackData = new ArrayList<>(stackData); // copie défensive
+        this.stackData = new ArrayList<>(stackData); 
     }
 
     @Override
     public void affiche() {
         accuLabel.setText(accu);
 
-        // le sommet de pile (dernier élément) s'affiche juste au-dessus de l'accumulateur
         int size = stackData.size();
         for (int i = 0; i < STACK_LINES; i++) {
             int idx = size - STACK_LINES + i;
@@ -116,13 +110,11 @@ public class CalculatorGUI extends Scene implements CalculatorGUIInterface {
         }
     }
 
-    // ------------------------------------------------------------------
-    // Utilitaires internes
-    // ------------------------------------------------------------------
+
 
     private void addButton(GridPane grid, String text, String command, int col, int row) {
         Button b = new Button(text);
-        b.setUserData(command); // commande lue par le contrôleur
+        b.setUserData(command); 
         b.setMaxWidth(Double.MAX_VALUE);
         b.setMaxHeight(Double.MAX_VALUE);
         b.setPrefSize(55, 40);

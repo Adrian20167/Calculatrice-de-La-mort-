@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage stage) {
         CalculatorModel model = new CalculatorModel();
         CalculatorGUI gui = new CalculatorGUI();
-        new CalculatorControler(model, gui); // câblage MVC
+        new CalculatorControler(model, gui); 
 
         stage.setTitle("Ma calculette");
         stage.setScene(gui);

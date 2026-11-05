@@ -9,7 +9,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 
 	private Stack<Double> memory ;
 	private double accu ;
-	private CalculatorControlerInterface controler ; // callback vers le contrôleur
+	private CalculatorControlerInterface controler ; 
 
 	public CalculatorModel() {
 	    this.memory = new Stack<>();
@@ -20,7 +20,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 		this.controler = controler;
 	}
 
-	/** Prévient le contrôleur que l'état du modèle a changé. */
+	
 	private void notifyControler() {
 		if (this.controler != null) {
 			this.controler.change(String.valueOf(this.accu));
@@ -36,14 +36,14 @@ public class CalculatorModel implements CalculatorModelInterface {
 	}
 
 	public void substract() {
-		// Vérification de si la pile est vide ou non pour éviter les erreurs
+		
 		if (!this.memory.isEmpty()) {
 			this.accu = this.memory.pop() - this.accu  ;
 		}
 		notifyControler();
 	}
 
-	// Fonction produit
+	
 
 	public void multiply() {
 		if (!this.memory.isEmpty()) {
@@ -104,7 +104,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 		notifyControler();
 	}
 
-	/** Pas de notification ici : le contrôleur gère l'affichage pendant la saisie. */
+	
 	public void setAccu(double valeur) {
 	    this.accu = valeur;
 	}
