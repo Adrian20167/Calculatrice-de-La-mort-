@@ -68,6 +68,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 
 	public void push()  {
 		this.memory.push(this.accu) ;
+		this.accu = 0 ;
 		notifyControler();
 	}
 
